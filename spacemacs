@@ -34,7 +34,9 @@ values."
      git
      markdown
      (org :variables
-          org-enable-github-support t)
+          org-enable-github-support t
+          org-startup-indented t          
+          )
      (shell :variables
             shell-default-shell 'eshell
             shell-default-term-shell "/bin/zsh"
@@ -261,7 +263,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
   (setq org-directory "/Users/kaushik/Library/Mobile Documents/com~apple~CloudDocs/Org-Notes/")
-  (setq org-agenda-files (list "/Users/kaushik/Library/Mobile Documents/com~apple~CloudDocs/Org-Notes/"))
+  (setq org-agenda-files (list "/Users/kaushik/Library/Mobile Documents/com~apple~CloudDocs/Org-Notes/"))  
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -301,10 +303,21 @@ you should place your code here."
                 ".org")
         org-directory))
       "* :podcast:
-  - %?" :empty-lines-after 1)))))
+  - %?"))))
+ '(org-hide-leading-stars t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-checkbox ((t (:background "#002b36" :foreground "#839496" :box (:line-width 1 :style released-button) :family "Fira Code Retina"))))
+ '(org-code ((t (:foreground "#586e75" :family "Fira Code Retina"))))
+ '(org-default ((t (:inherit default :family "Fira Code Retina"))))
+ '(org-document-title ((t (:foreground "#93a1a1" :weight bold :height 1.1 :family "Fira Code Retina"))))
+ '(org-done ((t (:foreground "#859900" :weight bold :family "Fira Code Retina"))))
+ '(org-headline-done ((t (:foreground "#859900" :family "Fira Code Retina"))))
+ '(org-level-1 ((t (:inherit variable-pitch :foreground "#cb4b16" :height 1.1 :family "Fira Code Retina"))))
+ '(org-level-2 ((t (:inherit variable-pitch :foreground "#859900" :height 1.0 :family "Fira Code Retina"))))
+ '(org-level-3 ((t (:inherit variable-pitch :foreground "#268bd2" :height 0.9 :family "Fira Code Retina"))))
+ '(org-level-4 ((t (:inherit variable-pitch :foreground "#b58900" :height 0.9 :family "Fira Code Retina"))))
+ '(org-link ((t (:foreground "#b58900" :underline t :family "Fira Code Retina")))))
