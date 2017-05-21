@@ -18,6 +18,8 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     yaml
+     sql
      javascript
      (haskell :variables
               haskell-process-type 'stack-ghci)
@@ -32,10 +34,12 @@ values."
      emacs-lisp
      osx
      git
-     markdown
+     (markdown :variables
+               markdown-enable-math t)
      (org :variables
           org-enable-github-support t
-          org-startup-indented t          
+          org-startup-indented t
+          org-export-with-toc nil
           )
      (shell :variables
             shell-default-shell 'eshell
@@ -46,7 +50,8 @@ values."
      syntax-checking
      version-control
      scala
-     purescript     
+     purescript
+     shell-scripts
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -70,12 +75,12 @@ values."
   ;; spacemacs settings.
   (setq-default
    ;; If non nil ELPA repositories are contacted via HTTPS whenever it's
-   ;; possible. Set it to nil if you have no way to use HTTPS in your
+   ;; possible. it to nil if you have no way to use HTTPS in your
    ;; environment, otherwise it is strongly recommended to let it set to t.
    ;; This variable has no effect if Emacs is launched with the parameter
    ;; `--insecure' which forces the value of this variable to nil.
    ;; (default t)
-   dotspacemacs-elpa-https t
+   dotspacemacs-elpa-https nil
    ;; Maximum allowed time in seconds to contact an ELPA repository.
    dotspacemacs-elpa-timeout 5
    ;; If non nil then spacemacs will check for updates at startup
@@ -153,7 +158,7 @@ values."
    dotspacemacs-default-layout-name "Default"
    ;; If non nil the default layout name is displayed in the mode-line.
    ;; (default nil)
-   dotspacemacs-display-default-layout nil
+   dotspacemacs-display-default-layout t
    ;; If non nil then the last auto saved layouts are resume automatically upon
    ;; start. (default nil)
    dotspacemacs-auto-resume-layouts nil
@@ -200,7 +205,7 @@ values."
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-maximized-at-startup t
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -218,7 +223,7 @@ values."
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    dotspacemacs-smartparens-strict-mode nil
@@ -242,7 +247,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup all
    ))
 
 (defun dotspacemacs/user-init ()
@@ -262,8 +267,9 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  (setq org-directory "/Users/kaushik/Library/Mobile Documents/com~apple~CloudDocs/Org-Notes/")
-  (setq org-agenda-files (list "/Users/kaushik/Library/Mobile Documents/com~apple~CloudDocs/Org-Notes/"))  
+  (setq org-directory "/Users/kaushik/Documents/Org-Notes/")
+  (setq org-agenda-files (list "/Users/kaushik/Documents/Org-Notes/"))
+  (global-set-key (kbd "M-?") 'company-complete) 
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
